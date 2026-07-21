@@ -1,7 +1,7 @@
 # API REST de Videojuegos - Laravel & Sanctum
 
 **Autor:** Leonardo Fuentes López  
-**No. Control:** 22161062 
+**No. Control:** 22161062  
 **Institución:** Instituto Tecnológico de Oaxaca  
 
 ---
