@@ -5,7 +5,7 @@ info:
 
 http:
   method: PUT
-  url: http://localhost:8000/api/videojuegos/2
+  url: http://169.58.15.223:8082/api/videojuegos/1
   body:
     type: json
     data: |-
@@ -14,7 +14,7 @@ http:
       }
   auth:
     type: bearer
-    token: 1|cuZxb7lcrxgxJQFH7iCtRTJXimcrDWoqhyslWE1b7b712405
+    token: 1|2ySY0yKglIgclp7OnQoOK9rJasyAO0OHrddKcHA8d8f58277
 
 settings:
   encodeUrl: true

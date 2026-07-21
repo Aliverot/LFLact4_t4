@@ -5,7 +5,14 @@ info:
 
 http:
   method: POST
-  url: http://169.58.15.223:8082/api/register
+  url: http://169.58.15.223:8082/api/login
+  body:
+    type: json
+    data: |-
+      {
+        "email": "admin@correo.com",
+        "password": "password123"
+      }
   auth: inherit
 
 settings:
