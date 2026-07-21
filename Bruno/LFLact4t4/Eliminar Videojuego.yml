@@ -1,0 +1,17 @@
+info:
+  name: Eliminar Videojuego
+  type: http
+  seq: 7
+
+http:
+  method: DELETE
+  url: http://localhost:8000/api/videojuegos/3
+  auth:
+    type: bearer
+    token: 1|cuZxb7lcrxgxJQFH7iCtRTJXimcrDWoqhyslWE1b7b712405
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
