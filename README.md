@@ -1,59 +1,75 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# API REST de Videojuegos - Laravel & Sanctum
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Autor:** Leonardo Fuentes López  
+**No. Control:** 22161062
+**Institución:** Instituto Tecnológico de Oaxaca  
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Descripción del Proyecto
+Este proyecto consiste en el desarrollo de una **API REST completa** construida con Laravel. El sistema permite gestionar un catálogo de videojuegos mediante operaciones CRUD completas y seguras. 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Características principales implementadas:
+* **Autenticación basada en Tokens:** Integración de Laravel Sanctum para el registro y login de usuarios.
+* **Seguridad (Middleware):** Protección de rutas CRUD para denegar el acceso a peticiones no autenticadas (Error 401).
+* **Validación de Datos:** Reglas estrictas en los controladores para la creación y actualización, devolviendo respuestas JSON estructuradas ante errores (Error 422).
+* **API Resources:** Transformación de la capa de salida para controlar exactamente qué datos se exponen en las respuestas JSON.
+* **Pruebas de API:** Colección nativa exportada con el cliente Bruno (`.bru`).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🧪 Evidencia de Pruebas en Entorno Local (Bruno)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+A continuación, se documenta la ejecución exitosa de cada uno de los endpoints de la API en el entorno de desarrollo local, siguiendo la colección de pruebas construida.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 1. Registro de Usuario (POST)
+Se valida la creación de un nuevo usuario en el sistema. Si los datos son correctos, devuelve código `201` y el token de acceso.
 
-## Laravel Sponsors
+<img width="1432" height="565" alt="image" src="https://github.com/user-attachments/assets/43f9d990-b5b6-4f52-a562-7571d3459d65" />
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
+### 2. Login de Usuario (POST)
+Se autentican las credenciales del usuario, devolviendo un código `200` y el `access_token` necesario para consumir la API.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+<img width="1431" height="561" alt="image" src="https://github.com/user-attachments/assets/e136a9b6-8da7-43aa-9f3e-97d43976b6f7" />
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 3. Comprobación de Seguridad (GET)
+Se intenta acceder a la ruta protegida de videojuegos sin enviar el token Bearer. La API rechaza la petición con un `401 Unauthorized`.
 
-## Code of Conduct
+<img width="1440" height="267" alt="image" src="https://github.com/user-attachments/assets/912ed849-b804-44a3-b4df-0baa3551e73d" />
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+### 4. Crear Videojuego (POST)
+Se envía un payload JSON con los datos del videojuego junto con el token válido. La API valida y registra el juego (Código `201`).
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<img width="1437" height="450" alt="image" src="https://github.com/user-attachments/assets/e045f2cb-f804-4b84-8893-e9d387253ce8" />
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 5. Listar Videojuegos (GET)
+Se recupera el listado paginado de los videojuegos almacenados en la base de datos (Código `200`).
+
+<img width="2246" height="892" alt="image" src="https://github.com/user-attachments/assets/b23abdca-f548-4c5b-a474-4c786468f2a9" />
+
+
+### 6. Actualizar Videojuego (PUT)
+Se modifica un atributo específico de un videojuego existente (ej. peso_gb), obteniendo un `200 OK` con la información actualizada.
+
+<img width="1428" height="508" alt="image" src="https://github.com/user-attachments/assets/b8d555bd-4da4-499a-b42d-1bb016ae4765" />
+
+
+### 7. Eliminar Videojuego (DELETE)
+Se elimina el registro especificado, obteniendo una respuesta `204 No Content` que confirma la ejecución exitosa.
+
+<img width="1435" height="408" alt="image" src="https://github.com/user-attachments/assets/bc90a1f5-b680-46f0-acb9-eefbf4d5ec26" />
+
+
+---
+
+## Fase 2: Despliegue en VPS
+
+El proyecto fue desplegado exitosamente en un Servidor Privado Virtual (VPS) configurando Nginx como servidor web, bases de datos y gestión de permisos. 
+
+La siguiente captura demuestra la API en vivo, recibiendo peticiones, procesando el Token Bearer y conectando con la base de datos del VPS de manera exitosa:
+
+<img width="1432" height="556" alt="image" src="https://github.com/user-attachments/assets/2c548ba7-a235-4b34-accb-06d206e06d7d" />
