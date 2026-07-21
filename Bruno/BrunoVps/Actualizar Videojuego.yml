@@ -1,0 +1,23 @@
+info:
+  name: Actualizar Videojuego
+  type: http
+  seq: 6
+
+http:
+  method: PUT
+  url: http://localhost:8000/api/videojuegos/2
+  body:
+    type: json
+    data: |-
+      {
+        "peso_gb": 65.2
+      }
+  auth:
+    type: bearer
+    token: 1|cuZxb7lcrxgxJQFH7iCtRTJXimcrDWoqhyslWE1b7b712405
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

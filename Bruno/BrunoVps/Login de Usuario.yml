@@ -1,0 +1,15 @@
+info:
+  name: Login de Usuario
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://169.58.15.223:8082/api/register
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

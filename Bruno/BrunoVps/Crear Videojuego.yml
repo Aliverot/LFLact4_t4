@@ -1,0 +1,27 @@
+info:
+  name: Crear Videojuego
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: http://localhost:8000/api/videojuegos
+  body:
+    type: json
+    data: |-
+      {
+        "titulo": "Elden Ring",
+        "desarrollador": "FromSoftware",
+        "descripcion": "Juego de rol de acción en un mundo abierto oscuro y fantástico.",
+        "motor_grafico": "Propio",
+        "peso_gb": 60.5
+      }
+  auth:
+    type: bearer
+    token: 1|cuZxb7lcrxgxJQFH7iCtRTJXimcrDWoqhyslWE1b7b712405
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
