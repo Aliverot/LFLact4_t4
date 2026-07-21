@@ -18,7 +18,7 @@ Características principales implementadas:
 
 ---
 
-## 🧪 Evidencia de Pruebas en Entorno Local (Bruno)
+## Evidencia de Pruebas en Entorno Local (Bruno)
 
 A continuación, se documenta la ejecución exitosa de cada uno de los endpoints de la API en el entorno de desarrollo local, siguiendo la colección de pruebas construida.
 
