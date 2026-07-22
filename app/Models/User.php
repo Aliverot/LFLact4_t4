@@ -12,6 +12,7 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
+    // HasApiTokens: Permite al usuario generar y usar llaves de seguridad (tokens).
     use HasFactory, Notifiable, HasApiTokens;
     
     /**
@@ -19,6 +20,7 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
+    // Por seguridad, solo estos campos se pueden guardar o editar de golpe.
     protected $fillable = [
         'name',
         'email',
@@ -30,6 +32,7 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
+    // Estos datos jamás se mostrarán cuando la API devuelva la información del usuario.
     protected $hidden = [
         'password',
         'remember_token',
@@ -40,6 +43,7 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
+    // Convierte datos automáticamente. Aquí asegura que la contraseña siempre se encripte.
     protected function casts(): array
     {
         return [

@@ -7,26 +7,28 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Crear la tabla (up)
      */
     public function up(): void
     {
+        // Define la estructura de la tabla "videojuegos" en la base de datos
         Schema::create('videojuegos', function (Blueprint $table) {
-            $table->id();
-            $table->string('titulo');
-            $table->string('desarrollador');
-            $table->text('descripcion')->nullable();
-            $table->string('motor_grafico')->nullable();
-            $table->decimal('peso_gb', 8, 2)->nullable();
-            $table->timestamps();
+            $table->id();                                    // ID único autoincrementable
+            $table->string('titulo');                        // Título del juego (Obligatorio)
+            $table->string('desarrollador');                 // Estudio o creador (Obligatorio)
+            $table->text('descripcion')->nullable();         // Resumen o descripción (Opcional)
+            $table->string('motor_grafico')->nullable();     // ej. Unreal Engine, Unity (Opcional)
+            $table->decimal('peso_gb', 8, 2)->nullable();   // Tamaño en GB con 2 decimales (Opcional)
+            $table->timestamps();                            // Fechas automáticas de creación y edición
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Eliminar la tabla (down)
      */
     public function down(): void
     {
+        // Borra la tabla por completo si se revierte la migración
         Schema::dropIfExists('videojuegos');
     }
 };

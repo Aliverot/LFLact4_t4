@@ -5,13 +5,13 @@ info:
 
 http:
   method: POST
-  url: http://169.58.15.223:8082/api/register
+  url: http://169.58.15.223/LFLact4t4/api/register
   body:
     type: json
     data: |-
       {
-        "name": "Admin",
-        "email": "admin@correo.com",
+        "name": "Admin2",
+        "email": "admin2@correo.com",
         "password": "password123"
       }
   auth: inherit

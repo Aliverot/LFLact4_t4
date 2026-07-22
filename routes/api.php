@@ -1,20 +1,20 @@
 <?php
-
+// 1. Importaciones: Carga de herramientas base y controladores necesarios.
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\VideojuegoController;
 
-// Rutas Públicas (No requieren token)
-Route::post('/register', [AuthController::class, 'register']);
+// 2. Rutas Públicas: Abiertas a cualquier usuario para registrarse u obtener su token.Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
-// Rutas Protegidas (SÍ requieren token)
+// 3. Filtro de Seguridad: Bloquea el acceso a las rutas internas si no hay un token válido.
 Route::middleware('auth:sanctum')->group(function () {
-    // Esto crea las 5 rutas del CRUD (index, store, show, update, destroy) automáticamente
+
+    // 4. CRUD Automático: Genera en una línea las 5 acciones protegidas para gestionar videojuegos.
     Route::apiResource('videojuegos', VideojuegoController::class);
     
-    // Ruta por defecto para ver tu usuario
+    // 5. Consulta de Identidad: Retorna la información del usuario que inició sesión.
     Route::get('/user', function (Request $request) {
         return $request->user();
     });

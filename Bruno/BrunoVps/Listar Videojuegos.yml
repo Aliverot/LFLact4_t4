@@ -5,7 +5,7 @@ info:
 
 http:
   method: GET
-  url: http://169.58.15.223:8082/api/videojuegos
+  url: http://169.58.15.223/LFLact4t4/api/videojuegos
   auth:
     type: bearer
     token: 1|2ySY0yKglIgclp7OnQoOK9rJasyAO0OHrddKcHA8d8f58277
