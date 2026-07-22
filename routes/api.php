@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\VideojuegoController;
 
-// 2. Rutas Públicas: Abiertas a cualquier usuario para registrarse u obtener su token.Route::post('/register', [AuthController::class, 'register']);
+// 2. Rutas Públicas: Abiertas a cualquier usuario para registrarse u obtener su token.
+Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 // 3. Filtro de Seguridad: Bloquea el acceso a las rutas internas si no hay un token válido.
