@@ -18,6 +18,34 @@ Características principales implementadas:
 
 ---
 
+## Tecnologías Utilizadas
+* **Backend:** PHP y Laravel
+* **Base de Datos:** MySQL
+* **Seguridad:** Laravel Sanctum
+* **Servidor Web y Despliegue:** Linux, Nginx y VPS
+* **Testing de Endpoints:** Bruno
+
+---
+
+## Endpoints de la API
+
+### Autenticación
+| Método | Endpoint | Descripción | Token Requerido |
+| :--- | :--- | :--- | :--- |
+| `POST` | `http://169.58.15.223/LFLact4t4/api/register` | Registra un nuevo usuario y devuelve el token de acceso. | No |
+| `POST` | `http://169.58.15.223/LFLact4t4/api/login` | Inicia sesión y devuelve el token de acceso (`access_token`). | No |
+
+### CRUD de Videojuegos
+| Método | Endpoint | Descripción | Token Requerido |
+| :--- | :--- | :--- | :--- |
+| `GET` | `http://169.58.15.223/LFLact4t4/api/videojuegos` | Devuelve el listado paginado de todos los videojuegos. | Sí (Bearer) |
+| `POST` | `http://169.58.15.223/LFLact4t4/api/videojuegos` | Crea un nuevo registro de videojuego en la base de datos. | Sí (Bearer) |
+| `GET` | `http://169.58.15.223/LFLact4t4/api/videojuegos/{id}` | Muestra los detalles exactos de un videojuego específico. | Sí (Bearer) |
+| `PUT/PATCH` | `http://169.58.15.223/LFLact4t4/api/videojuegos/{id}` | Actualiza la información de un videojuego existente. | Sí (Bearer) |
+| `DELETE` | `http://169.58.15.223/LFLact4t4/api/videojuegos/{id}` | Elimina un videojuego (Devuelve `204 No Content`). | Sí (Bearer) |
+
+---
+
 ## Evidencia de Pruebas en Entorno Local (Bruno)
 
 A continuación, se documenta la ejecución exitosa de cada uno de los endpoints de la API en el entorno de desarrollo local, siguiendo la colección de pruebas construida.
